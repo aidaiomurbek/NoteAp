@@ -1,5 +1,6 @@
 package com.example.noteapp21.room;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,7 +14,7 @@ import java.util.List;
 public interface NoteDao {
 
     @Query("SELECT * FROM note")
-    List<Note> getAll();
+    LiveData<List<Note>> getAll();
     @Insert
     void insert(Note note);
     @Delete

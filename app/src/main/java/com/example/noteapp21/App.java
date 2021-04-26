@@ -8,6 +8,9 @@ import androidx.room.RoomDatabase;
 import com.example.noteapp21.room.AppDataBase;
 
 public class App extends Application {
+    public static App instance;
+    public static Share share;
+
 
     private static AppDataBase dataBase;
     @Override

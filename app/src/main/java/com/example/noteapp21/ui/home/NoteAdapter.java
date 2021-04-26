@@ -25,7 +25,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     public NoteAdapter() {
         list = new ArrayList<Note>();
-        list.addAll(App.getDataBase().noteDao().getAll());
+       // list.addAll(App.getDataBase().noteDao().getAll());
 
     }
 

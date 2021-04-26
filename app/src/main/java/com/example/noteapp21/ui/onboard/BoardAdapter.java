@@ -10,12 +10,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.noteapp21.R;
 import com.example.noteapp21.ui.OnItemClickListener;
 
 public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> {
 
     private String[] titles = new String[]{"Fast", "Free", "Powerful"};
+    Integer[] gif = new Integer[]{R.raw.pic1,R.raw.pic2,R.raw.pic3};
 
     @NonNull
     @Override
@@ -36,13 +38,16 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textTitle;
-
+        private LottieAnimationView lottieAnimationView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            lottieAnimationView = itemView.findViewById(R.id.imageView);
             textTitle = itemView.findViewById(R.id.textTitle);
+
         }
 
         public void bind(int position) {
+            lottieAnimationView.setAnimation(gif[position]);
             textTitle.setText(titles[position]);
         }
     }

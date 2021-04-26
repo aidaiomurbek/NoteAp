@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         initNavController(navView);
         Prefs prefs = new Prefs(this);
-        if (!prefs.isShown()) {
+//        if (!prefs.isShown()) {
             navController.navigate(R.id.boardFragment);
-        } else {
-            navController.navigate(R.id.navigation_home);
-        }
+//        } else {
+//            navController.navigate(R.id.navigation_home);
+//        }
     }
 
     private void initNavController(BottomNavigationView navView) {
