@@ -23,9 +23,14 @@ import com.example.noteapp21.App;
 import com.example.noteapp21.R;
 import com.example.noteapp21.ui.models.Note;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NoteFragment extends Fragment {
     private EditText editText;
     private Button btnSave;
+    private String s;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -51,8 +56,7 @@ public class NoteFragment extends Fragment {
 
             private void save() {
                 String text = editText.getText().toString();
-                Note note = new Note(text);
-                note.setCreatedAt(System.currentTimeMillis());
+                Note note = new Note(text,System.currentTimeMillis());
                 App.getDataBase().noteDao().insert(note);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("note", note);
@@ -61,7 +65,10 @@ public class NoteFragment extends Fragment {
             }
         });
     }
+    void getDateInform(){
 
+
+    }
     private void initView() {
         btnSave = getView().findViewById(R.id.btnSave);
         editText = getView().findViewById(R.id.editText);

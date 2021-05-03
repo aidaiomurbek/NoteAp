@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.noteapp21.App;
@@ -24,9 +25,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     private OnItemClickListener onItemClickListener;
 
     public NoteAdapter() {
-        list = new ArrayList<Note>();
-       // list.addAll(App.getDataBase().noteDao().getAll());
-
+        list = new ArrayList<>();
+       list.addAll(App.getDataBase().noteDao().getAll());
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -84,7 +84,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
             this.listener = listener;
 
-            textTitle = itemView.findViewById(R.id.textTitle2);
+            textTitle = itemView.findViewById(R.id.nameItem);
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override

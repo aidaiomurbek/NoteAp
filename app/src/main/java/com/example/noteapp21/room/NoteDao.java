@@ -8,13 +8,14 @@ import androidx.room.Query;
 
 import com.example.noteapp21.ui.models.Note;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
 public interface NoteDao {
 
     @Query("SELECT * FROM note")
-    LiveData<List<Note>> getAll();
+    List<Note> getAll();
     @Insert
     void insert(Note note);
     @Delete

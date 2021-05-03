@@ -25,7 +25,9 @@ import com.example.noteapp21.ui.OnItemClickListener;
 import com.example.noteapp21.ui.models.Note;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class HomeFragment extends Fragment implements OnItemClickListener {
     public static final String KEY_NOTE = "keyNote";
@@ -33,6 +35,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
     private NoteAdapter adapter;
     private boolean isUpdating;
     private int position;
+    private String s;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,8 +60,9 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                openNote(null);
+                NavController navController = Navigation.findNavController(requireActivity(),
+                        R.id.nav_host_fragment);
+                navController.navigate(R.id.noteFragment, new Bundle());
                 isUpdating =false;
             }
         });
@@ -125,6 +129,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
 
 
     }
+
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {

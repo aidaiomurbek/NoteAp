@@ -12,6 +12,29 @@ public class Note implements Serializable {
     private long id;
     private String title;
     private long createdAt;
+    private String name;
+    private String number;
+
+    public String getName() {
+        return name;
+    }
+
+    public Note(String title, long createdAt) {
+        this.title = title;
+        this.createdAt = createdAt;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
     public Note() {
     }
@@ -44,7 +67,4 @@ public class Note implements Serializable {
         this.title = title;
     }
 
-    public Note(String title) {
-        this.title = title;
-    }
 }
